@@ -20,7 +20,7 @@ public:
 	void Сlear() { m_rawData.release(); m_packetId = 0; m_length = 0; }
 	size_t GetSizeData() const { return m_length; }
 	std::unique_ptr<std::byte[]> & GetRawData() { return m_rawData; }
-
+private:
 	std::unique_ptr<std::byte[]>	m_rawData;
 	size_t							m_length{ 0 };
 	size_t							m_packetId{ 0 };
@@ -72,7 +72,7 @@ public:
 	 */
 	bool Pop(unsigned char *buffer, unsigned int bufferSize, unsigned int &dataCount,
 		unsigned int &packetId);
-
+private:
 	size_t									  m_currentCountPacket {0};
 	size_t									  m_begin {0};
 	size_t									  m_end {0};
